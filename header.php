@@ -26,10 +26,17 @@
         <a class="nav-link" href="/popular.php">Popular</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" href="/search/" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0" name="form" action="" method="post">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search-bar" id="search-bar">
+      <button class='btn btn-outline-success my-2 my-sm-0' type='submit' role='button'>Search</button>
+      <?php
+      $url = "/search.php";
+      if(isset($_POST['search-bar'])){
+        $url = $url . "/" . $_POST['search-bar'];
+        header("Location: {$url}");
+      } ?>
     </form>
+
   </div>
 </nav>
   </body>

@@ -27,24 +27,24 @@
           <!--TODO: pull images from database -->
           <div class="row">
             <div class="col-md-4">
-              <img src="./img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
+              <img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
             </div>
             <div class="col-md-4">
-              <img src="./img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
+              <img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
             </div>
             <div class="col-md-4">
-              <img src="./img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
+              <img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
             </div>
           </div>
           <div class="row">
             <div class="col-md-4">
-              <img src="./img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
+              <img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
             </div>
             <div class="col-md-4">
-              <img src="./img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
+              <img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
             </div>
             <div class="col-md-4">
-              <img src="./img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
+              <img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
             </div>
           </div>
         </div>

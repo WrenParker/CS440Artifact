@@ -13,10 +13,10 @@
 
       echo "<div class='row'>";
       for ($i=0; $i < 30; $i++) {
-        $url = "/album.php/".(string)$i;
+        $url = "/album.php/?album=".(string)$i;
         $col = <<<COL
         <div class="col-2">
-          <a href={$url}><img src="./img/example.jpg" style="width:100%;" class="p-2" alt="uhoh"><a/>
+          <a href={$url}><img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh"><a/>
         </div>
         COL;
 

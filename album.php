@@ -6,7 +6,7 @@
   <div class="container pt-5">
     <div class="row align-items-end">
       <div class="col-md-3">
-        <img src="/img/example.jpg" style="width:100%;" class="p-2" alt="uhoh">
+        <img src="https://images-na.ssl-images-amazon.com/images/I/81VcA8-kuZL._SX425_.jpg" style="width:100%;" class="p-2" alt="uhoh">
       </div>
       <?php
       // get attributes from db

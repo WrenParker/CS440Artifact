@@ -2,8 +2,8 @@
 
 $hostname = 'localhost';
 $database = 'cs440_project';
-$username = 'sohan';
-$password = 'example';
+$username = 'sohan'; //sohan
+$password = 'example'; //example
 
 error_reporting(E_ALL ^ E_WARNING);
 
@@ -20,7 +20,8 @@ $sql = <<<QUERY
         ActType VARCHAR(25) NOT NULL,
         Founded DATE ,
         labelID VARCHAR(25) NOT NULL,
-        PRIMARY KEY (ArtistID)
+        PRIMARY KEY (ArtistID),
+        INDEX name_index (ArtistName)
     );
 QUERY;
 
@@ -31,7 +32,8 @@ $sql2 = <<<QUERY
         Length INT NOT NULL,
         Rating INT NOT NULL,
         AlbumID VARCHAR(25) NOT NULL,
-        PRIMARY KEY (SongID)
+        PRIMARY KEY (SongID),
+        INDEX title_index (SongTitle)
     );
 QUERY;
 
@@ -44,16 +46,20 @@ $sql3 = <<<QUERY
         Length INT NOT NULL,
         ArtistID VARCHAR(25) NOT NULL,
         AlbumCover VARCHAR(100),
-        PRIMARY KEY (AlbumID)
+        PRIMARY KEY (AlbumID),
+        INDEX date_index (Released),
+        INDEX title_index (AlbumTitle)
     );
 QUERY;
+
 
 $sql4 = <<<QUERY
     CREATE TABLE IF NOT EXISTS Label (
         LabelID VARCHAR(25) NOT NULL,
         LabelName VARCHAR(25) NOT NULL,
         Country VARCHAR(25) NOT NULL,
-        PRIMARY KEY (LabelID)
+        PRIMARY KEY (LabelID),
+        INDEX name_index (LabelName)
     );
 QUERY;
 
@@ -103,6 +109,7 @@ INSERT IGNORE INTO `songlinks` (`SongID`, `Link`) VALUES
 ('2', 'https://music.apple.com/us/album/sugar-were-goin-down/1440748840?i=1440749374'), 
 ('2', 'https://open.spotify.com/track/2TfSHkHiFO4gRztVIkggkE?si=8a5dd8348eeb4502');
 QUERY;
+
 
 
 $db->query($sql);

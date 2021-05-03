@@ -1,6 +1,6 @@
 
   <div class="w-100 h-100" style="background-color: #f1f1f1">
-    
+    <?php require("header.php"); ?>
     <div class="container">
       <div class="row pt-5 align-items-center">
         <div class="col-md-4">
@@ -24,7 +24,7 @@
         <div class="col-md-8">
 
         <?php
-    include "header.php";
+
     require('db.php');
 
 
@@ -47,7 +47,7 @@
      ?>
 
           <!--TODO: pull images from database -->
-       
+
         </div>
       </div>
     </div>

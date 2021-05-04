@@ -44,12 +44,17 @@
       $sqlalbumyear= "SELECT Released FROM Album WHERE AlbumID=$AlbumID";
       $resultrelease = $db->query($sqlalbumyear);
       $year = $resultrelease->fetch_assoc();
-     // $year = $name["Released"];
+      // $year = $name["Released"];
+      $albumDate = strtotime($year['Released']);
+      $releaseYear = date("Y", $albumDate);
       
-      $releaseYear = 2009;
 
 
-
+      $sqlsongs = "SELECT * FROM Song JOIN songlinks ON Song.SongID = songlinks.SongID AND Song.AlbumID = $AlbumID";
+      $songs = $db->query($sqlsongs);
+      $songResult = $songs->fetch_assoc();
+      
+      
 
       $length = "58 min 49 sec";
       echo <<<ALBUM
@@ -67,27 +72,26 @@
       ALBUM;
        ?>
   </div>
+
   <hr style="width: 100%;border: 1px solid #c4c4c4;">
     <?php
-    $list = array("1", "2");
 
-    foreach ($list as $song) {
       echo <<<SONG
       <div class="row">
         <div class="col-md-1">
-          {$song}
-        </div>
-        <div class="col-md-3">
-          Song Name
+          
         </div>
         <div class="col-md-5">
-          Link
+          <a href="{$songResult['Link']}">{$songResult['SongTitle']}</a>
         </div>
         <div class="col-md-3">
-          Length
+          Rating: {$songResult['Rating']}
+        </div>
+        <div class="col-md-3">
+          Length: {$songResult['Length']}
         </div>
       </div>
       SONG;
-    }
+    
      ?>
 </div>

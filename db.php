@@ -21,7 +21,8 @@ $sql = <<<QUERY
         Founded DATE ,
         labelID VARCHAR(25) NOT NULL,
         PRIMARY KEY (ArtistID),
-        INDEX name_index (ArtistName)
+        INDEX name_index (ArtistName),
+        INDEX nat_act_type (Nationality, ActType)
     );
 QUERY;
 
@@ -33,7 +34,8 @@ $sql2 = <<<QUERY
         Rating INT NOT NULL,
         AlbumID VARCHAR(25) NOT NULL,
         PRIMARY KEY (SongID),
-        INDEX title_index (SongTitle)
+        INDEX title_index (SongTitle),
+        INDEX albumID_index (AlbumID)
     );
 QUERY;
 

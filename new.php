@@ -2,7 +2,7 @@
 <div class="w-100 h-100" style="background-color: #f1f1f1">
   <?php
   include "header.php";
-  
+
   ?>
   <div class="container">
     <div class="pt-5">
@@ -11,14 +11,14 @@
     <?php
     require('db.php');
       //pull 30 latest albums
-      $albumKeys = "";
+    $albumKeys = "";
     $sqlalbumcover = "SELECT AlbumCover,AlbumID FROM Album";
     $result = $db->query($sqlalbumcover);
 
       echo "<div class='row'>";
       $counter = 0;
       while(($row = $result->fetch_assoc()) && ($counter < 30) ) {
-        
+
         $counter++;
         $url = "/album.php/?album=".$row["AlbumID"];
         $albumcover = $row["AlbumCover"];
@@ -29,7 +29,7 @@
         COL;
 
         echo $col;
-       
+
       }
       echo "</div>";
      ?>

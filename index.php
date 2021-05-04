@@ -23,28 +23,31 @@
         </div>
         <div class="col-md-8">
 
-        <?php
+          <?php
+          require('db.php');
+            //pull 30 latest albums
+          $albumKeys = "";
+          $sqlalbumcover = "SELECT AlbumCover,AlbumID FROM Album";
+          $result = $db->query($sqlalbumcover);
 
-    require('db.php');
+            echo "<div class='row'>";
+            $counter = 1;
+            while(($row = $result->fetch_assoc()) && ($counter < 30) ) {
 
+              $counter++;
+              $url = "/album.php/?album=".$row["AlbumID"];
+              $albumcover = $row["AlbumCover"];
+              $col = <<<COL
 
-    $sqlalbumcover = "SELECT AlbumCover FROM Album";
-    $result = $db->query($sqlalbumcover);
+              <div class='col-md-4'>
+                <a href={$url}><img src={$albumcover} style="width:100%;" class="p-2" alt="uhoh"></a>
+              </div>
+              COL;
 
-    echo "<div class='row'>";
-    $counter = 0;
-    while($row = $result->fetch_assoc()) {
-      echo "<div class='col-md-4'><img src=". $row["AlbumCover"]. " style='width:100%' class='p-2' > </div>";
-      $counter++;
-
-      if($counter % 3 == 0){
-        echo "</div> <div class='row'>";
-      }
-  }
-  if($counter % 3 != 0){
-  echo "</div>";
-  }
-     ?>
+              echo $col;
+            }
+            echo "</div>";
+           ?>
 
           <!--TODO: pull images from database -->
 

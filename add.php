@@ -9,38 +9,76 @@
     </div>
     <form>
       <div class="form-group">
-        <label for="exampleInputEmail1">Record Label</label>
-        <input type="text" class="form-control" id="Record">
+        <label for="RecordLabel">Record Label</label>
+        <input type="text" name="RecordLabel" class="form-control" id="RecordLabel">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Artist</label>
-        <input type="text" class="form-control" id="Record">
+        <label for="Artist">Artist</label>
+        <input type="text" name="Artist" class="form-control" id="Artist">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Album</label>
-        <input type="email" class="form-control" id="Album">
+        <label for="Album">Album</label>
+        <input type="text" name="Album" class="form-control" id="Album">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Song</label>
-        <input type="email" class="form-control" id="Song1">
+        <label for="Song1">Song</label>
+        <input type="text" name="Song1" class="form-control" id="Song1">
       </div>
+
       <div class="form-group">
-        <label for="exampleInputEmail1">Song</label>
-        <input type="email" class="form-control" id="Song2">
+        <label for="SongLink">SongLink</label>
+        <input type="text" name="SongLink" class="form-control" id="SongLink">
       </div>
+ 
       <div class="form-group">
-        <label for="exampleInputEmail1">Song</label>
-        <input type="email" class="form-control" id="Song3">
+        <label for="AlbumCover">AlbumCover</label>
+        <input type="text" name="AlbumCover" class="form-control" id="AlbumCover">
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Song</label>
-        <input type="email" class="form-control" id="Song4">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Song</label>
-        <input type="email" class="form-control" id="Song5">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" value="Submit">
+
+      <?php
+  
+    require("db.php");
+
+    
+          
+        // Taking all 5 values from the form data(input)
+        $RecordLabel = $_GET['RecordLabel'];
+        $Artist = $_GET['Artist'];
+        $Album =  $_GET['Album'];
+        $Song1 = $_GET['Song1'];
+        $SongLink = $_GET['SongLink'];
+        $AlbumCover = $_GET['AlbumCover'];
+        
+        
+        $conn = mysqli_connect($hostname, $username, $password, $database);
+         
+        // Performing insert query execution
+        // here our table name is college
+       
+
+ 
+      $sqlq1 = "INSERT INTO `artist` (`ArtistName`) VALUES ('$Artist')";
+      $sqlq2 = "INSERT INTO `album` (`AlbumTitle`, `AlbumCover`) VALUES ('$Album','$AlbumCover')";
+      $sqlq3 = "INSERT INTO `song` (`SongTitle`) VALUES ('$Song1')";
+
+    $rs = mysqli_query($conn, $sqlq1);
+    mysqli_query($conn, $sqlq2);
+    mysqli_query($conn, $sqlq3);
+          
+       if($rs){
+           echo "<h3>data stored in a database successfully.<h3>"; 
+                
+           
+       } else{
+          echo "<h3>didnt work</h3>" ;
+        }
+          
+       
+        ?>
+
+
+      
   </form>
   </div>
 </div>

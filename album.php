@@ -6,14 +6,51 @@
   <div class="container pt-5">
     <div class="row align-items-end">
       <div class="col-md-3">
-        <img src="https://images-na.ssl-images-amazon.com/images/I/81VcA8-kuZL._SX425_.jpg" style="width:100%;" class="p-2" alt="uhoh">
-      </div>
       <?php
+   require('db.php');
+  
+   $AlbumID = $_GET['album'];  
+   
+   $sqlalbumcover1 = "SELECT AlbumCover FROM Album WHERE AlbumID=$AlbumID";
+   $result = $db->query($sqlalbumcover1);
+     
+   while($row = $result->fetch_assoc()) {
+   echo "<img src=". $row["AlbumCover"]. " style='width:100%' class='p-2' >";
+  }
+
+        ?>
+        </div>
+
+      <?php
+       require('db.php');
       // get attributes from db
+
+      $AlbumID = $_GET['album'];
+
+
+
+     
       $type = "Album";
-      $name = "Tubthumping";
-      $artistName = "Chumbawamba";
-      $releaseYear = "1997";
+
+      $sqlalbumname = "SELECT AlbumTitle FROM Album WHERE AlbumID=$AlbumID";
+      $resultname = $db->query($sqlalbumname);
+      $name = $resultname->fetch_assoc();
+      $name = $name["AlbumTitle"];
+     
+      $artistName = $name;
+
+
+
+      $sqlalbumyear= "SELECT Released FROM Album WHERE AlbumID=$AlbumID";
+      $resultrelease = $db->query($sqlalbumyear);
+      $year = $resultrelease->fetch_assoc();
+     // $year = $name["Released"];
+      
+      $releaseYear = 2009;
+
+
+
+
       $length = "58 min 49 sec";
       echo <<<ALBUM
       <div class="col-md-9 px-5">

@@ -15,11 +15,6 @@
               New Releases
             </a>
           </div>
-          <div class="row pt-3">
-            <a class="btn btn-success btn-block" href="/popular.php" style="border-radius: 20px;" role="button">
-              Popular Albums
-            </a>
-          </div>
         </div>
         <div class="col-md-8">
 

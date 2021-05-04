@@ -24,9 +24,6 @@
                 <a class="nav-link" href="/new.php">New</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/popular.php">Popular</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="/add.php">Add Song</a>
               </li>
             </ul>

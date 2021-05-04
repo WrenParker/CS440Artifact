@@ -2,8 +2,8 @@
 
 $hostname = 'localhost';
 $database = 'cs440_project';
-$username = 'sohan'; //sohan
-$password = 'example'; //example
+$username = 'root'; //sohan
+$password = ''; //example
 
 error_reporting(E_ALL ^ E_WARNING);
 
@@ -14,7 +14,7 @@ if ($db->connect_error)
 
 $sql = <<<QUERY
     CREATE TABLE IF NOT EXISTS Artists (
-        ArtistID VARCHAR(25) NOT NULL,
+        ArtistID INT NOT NULL AUTO_INCREMENT,
         ArtistName VARCHAR(25) NOT NULL,
         Nationality VARCHAR(25) NOT NULL,
         ActType VARCHAR(25) NOT NULL,
@@ -28,7 +28,7 @@ QUERY;
 
 $sql2 = <<<QUERY
     CREATE TABLE IF NOT EXISTS Song (
-        SongID VARCHAR(25) NOT NULL,
+        SongID INT NOT NULL AUTO_INCREMENT,
         SongTitle VARCHAR(25) NOT NULL,
         Length INT NOT NULL,
         Rating INT NOT NULL,
@@ -41,7 +41,7 @@ QUERY;
 
 $sql3 = <<<QUERY
     CREATE TABLE IF NOT EXISTS Album (
-        AlbumID VARCHAR(25) NOT NULL,
+        AlbumID INT NOT NULL AUTO_INCREMENT,
         AlbumTitle VARCHAR(25) NOT NULL,
         Released DATE NOT NULL,
         Genre VARCHAR(25) NOT NULL,
@@ -57,7 +57,7 @@ QUERY;
 
 $sql4 = <<<QUERY
     CREATE TABLE IF NOT EXISTS Label (
-        LabelID VARCHAR(25) NOT NULL,
+        LabelID INT NOT NULL AUTO_INCREMENT,
         LabelName VARCHAR(25) NOT NULL,
         Country VARCHAR(25) NOT NULL,
         PRIMARY KEY (LabelID),

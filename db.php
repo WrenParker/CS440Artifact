@@ -2,8 +2,8 @@
 
 $hostname = 'localhost';
 $database = 'cs440_project';
-$username = 'root'; //sohan
-$password = ''; //example
+$username = 'sohan'; //sohan
+$password = 'example'; //example
 
 error_reporting(E_ALL ^ E_WARNING);
 

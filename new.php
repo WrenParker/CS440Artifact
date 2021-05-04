@@ -24,7 +24,7 @@
         $albumcover = $row["AlbumCover"];
         $col = <<<COL
         <div class="col-2">
-          <a href={$url}><img src={$albumcover} style="width:100%;" class="p-2" alt="uhoh"></a>
+          <a href={$url}><img src={$albumcover} style="width:100%;" class="p-2" alt="Album Cover"></a>
         </div>
         COL;
 

@@ -35,7 +35,7 @@
               $col = <<<COL
 
               <div class='col-md-4'>
-                <a href={$url}><img src={$albumcover} style="width:100%;" class="p-2" alt="uhoh"></a>
+                <a href={$url}><img src={$albumcover} style="width:100%;" class="p-2" alt="album cover"></a>
               </div>
               COL;
 

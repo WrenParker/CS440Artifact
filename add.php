@@ -29,7 +29,7 @@
         <label for="SongLink">SongLink</label>
         <input type="text" name="SongLink" class="form-control" id="SongLink">
       </div>
- 
+
       <div class="form-group">
         <label for="AlbumCover">AlbumCover</label>
         <input type="text" name="AlbumCover" class="form-control" id="AlbumCover">
@@ -37,50 +37,50 @@
       <input type="submit" value="Submit">
 
       <?php
-  
+
     require("db.php");
 
-    
-          
+
+
         // Taking all 5 values from the form data(input)
-        $RecordLabel = $_GET['RecordLabel'];
-        $Artist = $_GET['Artist'];
-        $Album =  $_GET['Album'];
-        $Song1 = $_GET['Song1'];
-        $SongLink = $_GET['SongLink'];
-        $AlbumCover = $_GET['AlbumCover'];
-        
-        
+        $RecordLabel = isset($_GET['RecordLabel']) ? $_GET['RecordLabel'] : NULL;
+        $Artist = isset($_GET['Artist']) ? $_GET['Artist'] : NULL;
+        $Album =  isset($_GET['Album']) ? $_GET['Album'] : NULL;
+        $Song1 = isset($_GET['Song1']) ? $_GET['Song1'] : NULL;
+        $SongLink = isset($_GET['SongLink']) ? $_GET['SongLink'] : NULL;
+        $AlbumCover = isset($_GET['AlbumCover']) ? $_GET['AlbumCover'] : NULL;
+
+
         $conn = mysqli_connect($hostname, $username, $password, $database);
-         
+
         // Performing insert query execution
         // here our table name is college
-       
 
- 
+
+
       $sqlq1 = "INSERT INTO `artist` (`ArtistName`) VALUES ('$Artist')";
-      
+
       $sqlq2 = "INSERT INTO `album` (`AlbumTitle`, `AlbumCover`) VALUES ('$Album','$AlbumCover')";
-      
+
 
       $sqlalbumID = "SELECT `AlbumID` FROM `album` WHERE `AlbumTitle` = '$Album'";
       $resultID = $db->query($sqlalbumID);
-
+      $fresultID = NULL;
       while($row = $resultID->fetch_assoc()) {
        $fresultID =  $row["AlbumID"];
     }
-        
-     
-     
-   
 
 
-    
+
+
+
+
+
       $sqlq3 = "INSERT INTO `song` (`SongTitle`, `AlbumID`) VALUES ('$Song1', '$fresultID')";
 
       $sqlsongID = "SELECT `SongID` FROM `song` WHERE `SongTitle` = '$Song1'";
       $resultsongID = $db->query($sqlsongID);
-
+      $fbresultID = NULL;
       while($brow = $resultsongID->fetch_assoc()) {
        $fbresultID =  $brow["SongID"];
     }
@@ -92,20 +92,20 @@
     mysqli_query($conn, $sqlq2);
     mysqli_query($conn, $sqlq3);
     mysqli_query($conn, $sqlq4);
-          
+
        if($rs){
-           echo "<h3>data stored in a database successfully.<h3>"; 
-                
-           
+           echo "<h3>data stored in a database successfully.<h3>";
+
+
        } else{
-         
+
         }
-          
-       
+
+
         ?>
 
 
-      
+
   </form>
   </div>
 </div>

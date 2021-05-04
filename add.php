@@ -59,46 +59,19 @@
 
  
       $sqlq1 = "INSERT INTO `artist` (`ArtistName`) VALUES ('$Artist')";
-      
       $sqlq2 = "INSERT INTO `album` (`AlbumTitle`, `AlbumCover`) VALUES ('$Album','$AlbumCover')";
-      
-
-      $sqlalbumID = "SELECT `AlbumID` FROM `album` WHERE `AlbumTitle` = '$Album'";
-      $resultID = $db->query($sqlalbumID);
-
-      while($row = $resultID->fetch_assoc()) {
-       $fresultID =  $row["AlbumID"];
-    }
-        
-     
-     
-   
-
-
-    
-      $sqlq3 = "INSERT INTO `song` (`SongTitle`, `AlbumID`) VALUES ('$Song1', '$fresultID')";
-
-      $sqlsongID = "SELECT `SongID` FROM `song` WHERE `SongTitle` = '$Song1'";
-      $resultsongID = $db->query($sqlsongID);
-
-      while($brow = $resultsongID->fetch_assoc()) {
-       $fbresultID =  $brow["SongID"];
-    }
-
-
-      $sqlq4 = "INSERT INTO `songlinks` (`SongID`, `Link`) VALUES ('$fbresultID', '$SongLink')";
+      $sqlq3 = "INSERT INTO `song` (`SongTitle`) VALUES ('$Song1')";
 
     $rs = mysqli_query($conn, $sqlq1);
     mysqli_query($conn, $sqlq2);
     mysqli_query($conn, $sqlq3);
-    mysqli_query($conn, $sqlq4);
           
        if($rs){
            echo "<h3>data stored in a database successfully.<h3>"; 
                 
            
        } else{
-         
+          echo "<h3>didnt work</h3>" ;
         }
           
        
